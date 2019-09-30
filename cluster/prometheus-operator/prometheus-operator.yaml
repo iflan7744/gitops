@@ -44,8 +44,6 @@ spec:
         enabled: true
         hosts:
         - grafana.iflan.local
-      service: 
-        type: NodePort
       adminPassword: iflan@123
     kubeApiServer:
       enabled: true
