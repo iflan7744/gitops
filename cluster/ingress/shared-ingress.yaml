@@ -1,0 +1,19 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: shared-ingress
+  annotations:
+spec:
+  releaseName: shared-ingress
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: nginx-ingress
+    version: 1.22.0
+  values:
+    controller:
+      replicaCount: 2
+      service:
+        targetPorts:
+          http: http
+          https: https
