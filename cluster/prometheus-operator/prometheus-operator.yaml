@@ -16,7 +16,7 @@ spec:
       ingress:
         enabled: true
         hosts:
-        - iflan.local
+        - alertmanager.iflan.local
       config:
         global:
           resolve_timeout: 5m
@@ -41,7 +41,7 @@ spec:
       ingress:
         enabled: true
         hosts:
-        - iflan.local
+        - grafana.iflan.local
       adminPassword: iflan@123
     kubeApiServer:
       enabled: true
@@ -64,7 +64,7 @@ spec:
       ingress:
         enabled: true
         hosts:
-        - iflan.local
+        - prometheus.iflan.local
     prometheus-node-exporter:
       extraArgs:
       - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+)($|/)
