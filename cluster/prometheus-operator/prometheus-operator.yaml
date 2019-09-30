@@ -17,7 +17,8 @@ spec:
         enabled: true
         hosts:
         - alertmanager.iflan.local
-      service: NodePort
+      service: 
+        type: NodePort
       config:
         global:
           resolve_timeout: 5m
@@ -43,7 +44,8 @@ spec:
         enabled: true
         hosts:
         - grafana.iflan.local
-      service: NodePort
+      service: 
+        type: NodePort
       adminPassword: iflan@123
     kubeApiServer:
       enabled: true
@@ -67,7 +69,8 @@ spec:
         enabled: true
         hosts:
         - prometheus.iflan.local
-      service: NodePort
+      service: 
+        type: NodePort
     prometheus-node-exporter:
       extraArgs:
       - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+)($|/)
