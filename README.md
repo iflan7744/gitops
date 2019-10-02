@@ -19,13 +19,26 @@ As a bonus, it will also allow anybody that has read access to this repo (which 
 # So how does it handle helm deployments?
 This is where the flux-helm operator comes into the picture. If you want to do a Helm deployment than you must supply a CRD (custom resource definition) object called "HelmRelease" (more info on CRD can be found here https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/). This special HelmRelease resource object is what will be applied by the flux operatoror once the changes are commited to your git repo. Once the HelmRelease object is deployed into the cluster the flux-helm operator (which is listening for these types of resources) will read the object, parse all the values, pull the referenced helm chart and deploy the chart with all of the custom values that were supplied in the HelmRelease object.
 
+# How to Install Flux in your kubernetes cluster?
+I have written a script to make the work easy. So, all you need to do is as below steps.
+
+1. helm repo add fluxcd https://charts.fluxcd.io 
+2. Generate a SSH key.
+3. Change the variable value of "GIT_REPO" to your git repo and "git.user" to your username.
+4. Make flux.sh file as an executable file
+5. Run the script as ./flux.sh /path/to/private.key_generated
+6. Once helm deployed run "kubectl -n flux logs deployment/flux | grep identity.pub | cut -d '"' -f2" and get the key copied and paste to github --> setting --> Deploy keys
+
 Below is an example of a deployment of Ingress controller
 
 ![alt text](https://github.com/iflan7744/gitops/blob/master/ingress-controller-gitops.png)
 
 # Repository Layout
 We can choose to follow folder structure per cluster format. Here I have used simple as Cluster because I have only one cluster. What ever inside cluster folder get reflect to the K8s environment. Even if we manually delete a deployment from the cluster without doing changes to repo it will get deploy within few minutes.
-# gitops/cluster/ingress/shared-ingress.yaml
+
+### Note: - In script you can change the path of git where the changes need to get reflecte  "--set git.path="cluster" "
+
+#### gitops/cluster/ingress/shared-ingress.yaml
 
 
 
