@@ -4,7 +4,7 @@
 * Approved changes to the desired state are automatically applied to the system
 * Software agents ensure correctness
 # Problem
-Kubernetes has to many components to effectively manage manually. Clusters need a lot of configuration in place to work as expected. Cluster configs also evolve over time as teams become more experienced. So who is going to keep track of all these changes?
+Kubernetes has too many components to effectively manage manually. Clusters need a lot of configuration in place to work as expected. Cluster configs also evolve over time as teams become more experienced. So who is going to keep track of all these changes?
 What happens when someone with access to the cluster deletes something and things go haywire? Or worse, what happens if you lose your cluster completely (all etcd data gone), how can you recover? and how quickly?
 With so many moving parts it makes it very difficult to keep up with all the changes. If changes are being applied from the command line on local laptops, how can you keep track of what changed, when, where, and who approved it? Also, what is the rollback strategy? If the person who made the change in the first place is not available now, you first must figure out what changes were made in the first place. This is a waste of time.
 All the above scenarios are tedious, error prone, not scalable, and not easily repeatable. They all require too much inside knowledge, making it very difficult to on board new team members into the management (or lack thereof) flow.
