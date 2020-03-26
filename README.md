@@ -1,4 +1,4 @@
-# As an extra work I have deployed Gitops - Automated Kubernetes deployments with Cluster State enforcement. 
+# Gitops - Automated Kubernetes deployments with Cluster State enforcement. 
 * The entire system is described declaratively.
 * The canonical desired system state is versioned (with Git)
 * Approved changes to the desired state are automatically applied to the system
